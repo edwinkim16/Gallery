@@ -45,5 +45,14 @@ class Image(models.Model):
     image = models.ImageField(upload_to='images/')
     post_date = models.DateTimeField(auto_now_add=True)
 
+    def save_image(self):
+        self.save()
+
+
+    @classmethod
+    def all_images(cls):
+        images = cls.objects.all()
+        return images
+
     def __str__(self):
         return self.title        
