@@ -28,6 +28,13 @@ class Location(models.Model):
 class Category(models.Model):
     category = models.CharField(max_length=30)
 
+    def save_category(self):
+        self.save()
+
+    @classmethod
+    def delete_category(cls,category):
+        cls.objects.filter(category=category).delete()
+
     def __str__(self):
         return self.category        
 
