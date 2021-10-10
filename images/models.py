@@ -1,6 +1,7 @@
 from django.db import models
 import datetime as dt
 from django.db.models import Q
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 class Location(models.Model):
@@ -42,7 +43,8 @@ class Image(models.Model):
     title=models.CharField(max_length=60)
     categories = models.ManyToManyField(Category)
     location = models.ForeignKey(Location,on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='images/')
+    #image = models.ImageField(upload_to='images/')
+    image = CloudinaryField('image')
     post_date = models.DateTimeField(auto_now_add=True)
 
     def save_image(self):
