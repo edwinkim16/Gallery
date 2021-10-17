@@ -32,9 +32,9 @@ SECRET_KEY = config('SECRET_KEY')
 
 # adding config
 cloudinary.config( 
-  cloud_name = "edwin16kim", 
-  api_key = "791736515195352", 
-  api_secret = "G0K-Ym-5TAJZZ146ENzWQ1jSjb0" 
+  cloud_name = config('CLOUDINARY_CLOUD_NAME'),
+  api_key = config('CLOUDINARY_API_KEY'), 
+  api_secret = config('CLOUDINARY_API_SECRET'),
 )
 
 # SECURITY WARNING: don't run with debug turned on in production!
